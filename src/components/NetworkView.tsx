@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import ForceGraph2D from 'react-force-graph-2d';
 import ForceGraph3D from 'react-force-graph-3d';
 import { 
-  Download, Tag, Link2, ChevronDown, Network, 
+  Download, Network, 
   FlaskConical, Database, Maximize2, X, Activity, Share2, Info, Grid3X3
 } from 'lucide-react';
 import { cn } from '../utils/cn';
