@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-roche-blue: #0066CC;
+  --color-roche-blue-hover: #0056b3;
+  --color-roche-blue-light: #E6F0FA;
+}
+
+body {
+  @apply bg-[#F3F4F6] text-slate-800 antialiased;
+  font-family: 'Inter', 'Roboto', 'Outfit', sans-serif;
+}
