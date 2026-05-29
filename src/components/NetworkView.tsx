@@ -44,11 +44,11 @@ export function NetworkView() {
     const seededRandom = () => { seed = (seed * 16807 + 0) % 2147483647; return seed / 2147483647; };
     
     const hubMeta: Record<string, { fullName: string; desc: string; pathway: string; pdb: string }> = {
-      'EGFR':  { fullName: 'Epidermal Growth Factor Receptor', desc: 'Transmembrane tyrosine kinase receptor driving cell proliferation via RAS/MAPK and PI3K/AKT pathways. Primary target in NSCLC (non-small cell lung cancer) and head & neck squamous cell carcinoma.', pathway: 'RAS/MAPK', pdb: '1M17' },
-      'HER2':  { fullName: 'Human Epidermal Growth Factor Receptor 2', desc: 'ErbB2/HER2 amplification drives ~20% of breast cancers. Targeted by trastuzumab (Herceptin®) and pertuzumab. Dimerizes with EGFR and HER3.', pathway: 'PI3K/AKT', pdb: '3PP0' },
-      'BRAF':  { fullName: 'B-Raf Proto-Oncogene', desc: 'Serine/threonine kinase in the MAPK cascade. V600E mutation present in ~50% of melanomas. Targeted by vemurafenib and dabrafenib.', pathway: 'MAPK/ERK', pdb: '4RZW' },
-      'KRAS':  { fullName: 'Kirsten Rat Sarcoma Viral Oncogene', desc: 'Small GTPase mutated in ~25% of all human cancers. G12C mutation recently druggable (sotorasib). Key node in RAS/MAPK signaling.', pathway: 'RAS/MAPK', pdb: '6OIM' },
-      'ALK':   { fullName: 'Anaplastic Lymphoma Kinase', desc: 'Receptor tyrosine kinase. EML4-ALK fusion is a validated oncogenic driver in 3–5% of NSCLC patients. Targeted by crizotinib, alectinib, lorlatinib.', pathway: 'JAK/STAT', pdb: '2XP2' },
+      'GLP-1R': { fullName: 'Glucagon-Like Peptide-1 Receptor', desc: 'Class B GPCR crucial for glucose homeostasis and appetite regulation. Blockbuster target for obesity, Type 2 diabetes, and emerging cardiovascular/NASH indications (e.g. semaglutide, tirzepatide).', pathway: 'cAMP/PKA', pdb: '6X18' },
+      'APP':    { fullName: 'Amyloid Beta Precursor Protein', desc: 'Precursor to amyloid-beta peptides. Cleavage by BACE1 and γ-secretase leads to Aβ plaque formation in Alzheimer’s Disease. Targeted by groundbreaking mAbs like lecanemab and donanemab.', pathway: 'Amyloidogenic', pdb: '3DXC' },
+      'PD-1':   { fullName: 'Programmed Cell Death Protein 1', desc: 'Immune checkpoint receptor on T-cells. Blocking PD-1/PD-L1 interaction unleashes anti-tumor immunity. The absolute backbone of modern immuno-oncology (e.g. pembrolizumab, nivolumab).', pathway: 'T-Cell Receptor', pdb: '4ZQK' },
+      'KRAS':   { fullName: 'Kirsten Rat Sarcoma Viral Oncogene', desc: 'Small GTPase historically considered "undruggable". Recent breakthroughs in G12C and pan-KRAS inhibitors have revolutionized targeted therapy in NSCLC and colorectal cancer.', pathway: 'RAS/MAPK', pdb: '6OIM' },
+      'TREM2':  { fullName: 'Triggering Receptor Expressed on Myeloid Cells 2', desc: 'Key microglial immune receptor. Rare variants significantly increase Alzheimer’s risk. Next-generation neuroimmunology target aimed at clearing toxic protein aggregates.', pathway: 'SYK/PI3K', pdb: '5ELI' },
     };
     
     const hubs = Object.keys(hubMeta);
@@ -70,15 +70,15 @@ export function NetworkView() {
       { name: 'Western Blot pERK', desc: 'Phospho-ERK1/2 Western blot assay for MAPK pathway inhibition confirmation.' },
     ];
     const diseases = [
-      { name: 'NSCLC', desc: 'Non-Small Cell Lung Cancer — accounts for ~85% of lung cancers. Key mutations: EGFR, ALK, KRAS, ROS1.' },
-      { name: 'HER2+ Breast Cancer', desc: 'Breast cancer subtype with HER2 gene amplification, representing ~20% of cases.' },
-      { name: 'Melanoma (BRAF V600E)', desc: 'Cutaneous melanoma harboring BRAF V600E mutation, ~50% of metastatic melanoma.' },
-      { name: 'Colorectal Cancer (CRC)', desc: 'Third most common cancer globally. KRAS mutations present in ~40% of cases.' },
-      { name: 'Glioblastoma (GBM)', desc: 'Aggressive primary brain tumor with median survival of 14–16 months. EGFR amplified in ~60%.' },
-      { name: 'Pancreatic Ductal Adeno.', desc: 'KRAS-driven in >90% of cases. Extremely poor prognosis with 5-year survival <10%.' },
-      { name: 'Thyroid Carcinoma', desc: 'Papillary thyroid carcinoma frequently harbors BRAF V600E or RAS mutations.' },
-      { name: 'Neuroblastoma', desc: 'Pediatric cancer of sympathetic nervous system. ALK mutations found in ~14% of high-risk cases.' },
-      { name: 'Cholangiocarcinoma', desc: 'Bile duct cancer with emerging targeted therapy options for FGFR/IDH/BRAF alterations.' },
+      { name: 'Obesity (BMI ≥30)', desc: 'Global epidemic driving cardiometabolic disease. Currently revolutionized by incretin mimetics (GLP-1/GIP/Glucagon tri-agonists).' },
+      { name: 'Alzheimer’s Disease', desc: 'Most common neurodegenerative disease. Early-stage intervention via amyloid clearance is the current paradigm.' },
+      { name: 'Type 2 Diabetes', desc: 'Chronic metabolic disorder characterized by insulin resistance. Huge overlap with NASH/MASH and obesity pipelines.' },
+      { name: 'MASH / NASH', desc: 'Metabolic dysfunction-associated steatohepatitis. Massive unmet need with emerging thyroid hormone and GLP-1 targeted therapies.' },
+      { name: 'NSCLC', desc: 'Non-Small Cell Lung Cancer. Highly segmented by molecular drivers (KRAS, EGFR, ALK) and PD-L1 expression.' },
+      { name: 'Melanoma', desc: 'Advanced cutaneous melanoma. Poster child for PD-1/CTLA-4 combination immunotherapy.' },
+      { name: 'Colorectal Cancer (CRC)', desc: 'Third most common cancer. KRAS mutated in ~40% of cases, driving resistance to EGFR inhibitors.' },
+      { name: 'Parkinson’s Disease', desc: 'Second most common neurodegenerative disorder. LRRK2 and alpha-synuclein are major emerging therapeutic nodes.' },
+      { name: 'Triple-Negative Breast Cancer', desc: 'Aggressive subtype lacking HR/HER2 expression. Major focus for Antibody-Drug Conjugates (ADCs) like Trop-2.' },
     ];
 
     for (let i = 0; i < 350; i++) {
