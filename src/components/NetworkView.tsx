@@ -213,32 +213,17 @@ export function NetworkView() {
       <div className="h-16 px-8 border-b border-slate-200 bg-white flex items-center justify-between shrink-0 z-10">
         <div className="flex items-center gap-3">
           <h1 className="text-xl font-bold text-slate-900 tracking-tight">Knowledge Graph</h1>
-          <span className="bg-emerald-50 border border-emerald-200 text-emerald-700 px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase shadow-sm">Live Interactome</span>
+          <span className="bg-emerald-50 border border-emerald-200 text-emerald-700 px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase shadow-sm">Updated: Today, 10:45 AM</span>
         </div>
         <div className="flex items-center gap-3 shrink-0">
           <button className="text-slate-600 hover:text-slate-900 text-sm font-semibold flex items-center gap-2 px-3 py-1.5 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors shadow-sm">
-            <Download className="w-4 h-4" /> Export Network
+            <Download className="w-4 h-4" /> Export
           </button>
         </div>
       </div>
 
       {/* SECONDARY TOOLBAR */}
-      <div className="h-14 px-8 border-b border-slate-200 bg-white flex items-center justify-between shrink-0 z-10">
-         <div className="flex items-center gap-2">
-            <button className="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-md text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-100 transition-colors">
-              Last 7 Days <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-            </button>
-            <button className="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-md text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-100 transition-colors">
-              Daily <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-            </button>
-            <div className="w-px h-5 bg-slate-200 mx-2" />
-            <button className="text-slate-600 hover:bg-slate-100 px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-1.5 transition-colors">
-              <Tag className="w-3.5 h-3.5" /> Tags
-            </button>
-            <button className="text-slate-600 hover:bg-slate-100 px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-1.5 transition-colors">
-              <Link2 className="w-3.5 h-3.5" /> Targets
-            </button>
-         </div>
+      <div className="h-14 px-8 border-b border-slate-200 bg-white flex items-center justify-start shrink-0 z-10">
 
          <div className="flex items-center gap-4">
             {/* 3D / 2D Toggle Switch */}
@@ -298,30 +283,6 @@ export function NetworkView() {
           
           {viewMode !== 'matrix' && (
             <>
-              {/* Enhanced Glassmorphism Legend */}
-              <div className="absolute top-6 left-6 z-10 bg-white/70 backdrop-blur-xl border border-white/40 rounded-2xl p-5 shadow-xl pointer-events-none">
-                <h3 className="text-[10px] font-bold text-slate-400 mb-4 uppercase tracking-widest flex items-center gap-2">
-                  <Network className="w-3.5 h-3.5" /> Network Nodes
-                </h3>
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3.5 h-3.5 rounded-full bg-slate-900 shadow-sm ring-2 ring-white" />
-                    <span className="text-sm font-semibold text-slate-700">Major Target Hub</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3.5 h-3.5 rounded-full bg-[var(--color-roche-blue)] shadow-sm ring-2 ring-white" />
-                    <span className="text-sm font-semibold text-slate-700">Compound</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3.5 h-3.5 rounded-full bg-cyan-500 shadow-sm ring-2 ring-white" />
-                    <span className="text-sm font-semibold text-slate-700">Assay Protocol</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3.5 h-3.5 rounded-full bg-rose-500 shadow-sm ring-2 ring-white" />
-                    <span className="text-sm font-semibold text-slate-700">Disease / Phenotype</span>
-                  </div>
-                </div>
-              </div>
 
               {/* WebGL Canvas */}
               {viewMode === '3d' ? (
